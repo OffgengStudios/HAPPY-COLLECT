@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jobberman registration data collection form" />
+  <meta name="theme-color" content="#0b5ed7" />
+  <title>Jobberman Registration</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="card" aria-labelledby="formTitle">
+      <header class="card-header">
+        <div class="brand-row">
+          <img class="brand-mark" src="favicon.svg" alt="" width="48" height="48" />
+          <div>
+            <p class="brand-name">Jobberman</p>
+            <p class="eyebrow">Registration</p>
+          </div>
+        </div>
+
+        <h1 id="formTitle">Capacity Building Registration</h1>
+        <p class="subtitle">Enter your information, complete the fields shown, and sign to confirm your consent.</p>
+
+        <div class="progress-line" aria-live="polite">
+          <span id="progressText">0 of 7 fields completed</span>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </div>
+      </header>
+
+      <form id="registrationForm" novalidate autocomplete="off">
+        <div class="field">
+          <label for="fullName">Full Name <span class="required" aria-hidden="true">*</span></label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" maxlength="120" placeholder="e.g. Ama Mensah" aria-describedby="fullNameHint fullNameError" required />
+          <small class="field-hint" id="fullNameHint">Enter the full name as it appears on the Ghana Card.</small>
+          <small class="field-error" id="fullNameError"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number <span class="required" aria-hidden="true">*</span></label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="024 123 4567" maxlength="17" aria-describedby="phoneHint phoneError" required />
+          <small class="field-hint" id="phoneHint">You can enter a local number; it will be stored in +233 format.</small>
+          <small class="field-error" id="phoneError"></small>
+        </div>
+
+        <div class="field">
+          <label for="dateOfBirth">Date of Birth <span class="required" aria-hidden="true">*</span></label>
+          <input id="dateOfBirth" name="dateOfBirth" type="date" aria-describedby="dateOfBirthHint dateOfBirthError" required />
+          <small class="field-hint" id="dateOfBirthHint">Select the participant's date of birth.</small>
+          <small class="field-error" id="dateOfBirthError"></small>
+        </div>
+
+        <div class="field">
+          <label for="ghanaCard">Ghana Card Number <span class="required" aria-hidden="true">*</span></label>
+          <input id="ghanaCard" name="ghanaCard" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="GHA-123456789-0" maxlength="15" aria-describedby="ghanaCardHint ghanaCardError" required />
+          <small class="field-hint" id="ghanaCardHint">Format: GHA-XXXXXXXXX-X. Hyphens are added automatically.</small>
+          <small class="field-error" id="ghanaCardError"></small>
+        </div>
+
+        <div class="field">
+          <label for="location">Residential Area / Community <span class="required" aria-hidden="true">*</span></label>
+          <input id="location" name="location" type="text" autocomplete="address-level2" maxlength="120" placeholder="e.g. Madina, Adenta, East Legon" aria-describedby="locationHint locationError" required />
+          <small class="field-hint" id="locationHint">Enter where the participant lives, not only the region.</small>
+          <small class="field-error" id="locationError"></small>
+        </div>
+
+        <section class="form-section" aria-labelledby="employmentTitle">
+          <h2 id="employmentTitle">Employment Details</h2>
+          <div class="field">
+            <label for="employmentStatus">Employment status <span class="required" aria-hidden="true">*</span></label>
+            <select id="employmentStatus" name="employmentStatus" aria-describedby="employmentStatusError" required></select>
+            <small class="field-error" id="employmentStatusError"></small>
+          </div>
+          <div class="field" id="employmentStatusOtherField" hidden>
+            <label for="employmentStatusOther">Please specify employment status</label>
+            <input id="employmentStatusOther" name="employmentStatusOther" type="text" maxlength="120" aria-describedby="employmentStatusOtherError" />
+            <small class="field-error" id="employmentStatusOtherError"></small>
+          </div>
+          <div class="field" id="currentlyWorkingField" hidden>
+            <label for="currentlyWorking">Are you currently doing any paid work or running a business?</label>
+            <select id="currentlyWorking" name="currentlyWorking" aria-describedby="currentlyWorkingError">
+              <option value="">Select an option</option><option value="Yes">Yes</option><option value="No">No</option>
+            </select>
+            <small class="field-error" id="currentlyWorkingError"></small>
+          </div>
+          <div class="form-section work-details" id="workDetails" hidden>
+            <div class="field">
+              <label for="occupation">What do you do?</label>
+              <input id="occupation" name="occupation" type="text" maxlength="120" placeholder="Job title, occupation, or type of business" aria-describedby="occupationError" />
+              <small class="field-error" id="occupationError"></small>
+            </div>
+            <div class="field">
+              <label for="workSector">Which sector best describes your main work or business?</label>
+              <select id="workSector" name="workSector" aria-describedby="workSectorError"></select>
+              <small class="field-error" id="workSectorError"></small>
+            </div>
+            <div class="field" id="workSectorOtherField" hidden>
+              <label for="workSectorOther">Please specify work sector</label>
+              <input id="workSectorOther" name="workSectorOther" type="text" maxlength="120" aria-describedby="workSectorOtherError" />
+              <small class="field-error" id="workSectorOtherError"></small>
+            </div>
+            <div class="field">
+              <label for="incomeRange">Monthly Salary / Income Range (GH₵)</label>
+              <select id="incomeRange" name="incomeRange" aria-describedby="incomeRangeError"></select>
+              <small class="field-error" id="incomeRangeError"></small>
+            </div>
+            <div class="field">
+              <label for="workNearHome">Do you work in the same area/community where you live?</label>
+              <select id="workNearHome" name="workNearHome" aria-describedby="workNearHomeHint workNearHomeError">
+                <option value="">Select an option</option><option value="Yes">Yes</option><option value="No">No</option>
+              </select>
+              <small class="field-hint" id="workNearHomeHint">If yes, your residential location will also be saved as your work location.</small>
+              <small class="field-error" id="workNearHomeError"></small>
+            </div>
+            <div class="field" id="workLocationField" hidden>
+              <label for="workLocation">Work Area / Community</label>
+              <input id="workLocation" name="workLocation" type="text" maxlength="120" placeholder="Enter the area/community where you work" aria-describedby="workLocationError" />
+              <small class="field-error" id="workLocationError"></small>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section consent-section" aria-labelledby="consentTitle">
+          <h2 id="consentTitle">Participant Consent</h2>
+          <p id="consentSummary"></p>
+          <details id="fullConsent"><summary>Read full consent notice</summary><div id="consentNotice"></div></details>
+          <a href="https://mastercardfdn.org/privacy/" target="_blank" rel="noopener noreferrer">Privacy policy (opens in a new tab)</a>
+          <p id="consentDeclaration"></p>
+          <div class="field">
+            <label for="signature">Participant signature / mark <span class="required" aria-hidden="true">*</span></label>
+            <small class="field-hint" id="signatureHint">Draw with your finger, stylus, or mouse. A simple mark or scribble is accepted.</small>
+            <p class="signer-name">Signing as: <strong id="signerName">Enter the participant's full name above</strong></p>
+            <canvas id="signature" width="1000" height="360" tabindex="0" role="img" aria-label="Participant signature drawing area" aria-describedby="signatureHint signatureError"></canvas>
+            <button id="clearSignature" class="secondary-button compact-button" type="button">Clear signature</button>
+            <small class="field-error" id="signatureError" aria-live="polite"></small>
+          </div>
+        </section>
+
+        <button id="submitButton" type="submit">
+          <span id="submitButtonText">Agree &amp; Submit Registration</span>
+          <span id="submitSpinner" class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+
+        <section id="successCard" class="success-card" hidden aria-live="polite">
+          <h2 id="saveResultTitle">Registration complete</h2>
+          <p id="saveResultText">Your registration and consent have been submitted successfully.</p>
+          <div class="record-box">
+            <span id="receiptLabel">Registration reference</span>
+            <strong id="recordId">—</strong>
+          </div>
+          <button id="registerAnotherButton" class="secondary-button" type="button">Start a new registration</button>
+        </section>
+      </form>
+    </section>
+  </main>
+
+  <script src="registration-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
